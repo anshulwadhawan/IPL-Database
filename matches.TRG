@@ -1,0 +1,8 @@
+TYPE=TRIGGERS
+triggers='CREATE DEFINER=`root`@`localhost` TRIGGER `KKRT` AFTER INSERT ON `matches` FOR EACH ROW BEGIN\n    IF NEW.result = \'KKR WON\' THEN\n  BEGIN\n  UPDATE\n    points_table\n  SET\n    points = points +2\n  WHERE\n    teamID = \'KKR\';\nEND;\n  END IF;\nEND' 'CREATE DEFINER=`root`@`localhost` TRIGGER `RCBT` AFTER INSERT ON `matches` FOR EACH ROW BEGIN\n IF NEW.result = \'RCB WON\' THEN\n  BEGIN\n  UPDATE\n    points_table\n  SET\n    points = points +2\n  WHERE\n    teamID = \'RCB\';\nEND;\n  END IF;\nEND' 'CREATE DEFINER=`root`@`localhost` TRIGGER `MIT` AFTER INSERT ON `matches` FOR EACH ROW BEGIN\n IF NEW.result = \'MI WON\' THEN\n  BEGIN\n  UPDATE\n    points_table\n  SET\n    points = points +2\n  WHERE\n    teamID = \'MI\';\nEND;\n  END IF;\nEND' 'CREATE DEFINER=`root`@`localhost` TRIGGER `DDT` AFTER INSERT ON `matches` FOR EACH ROW BEGIN\n IF NEW.result = \'DD WON\' THEN\n  BEGIN\n  UPDATE\n    points_table\n  SET\n    points = points +2\n  WHERE\n    teamID = \'DD\';\nEND;\n  BEGIN\n  UPDATE\n    rank\n  SET\n    points = points +2\n  WHERE\n    NRR=(select NRR from team NATURAL JOIN points_table where teamID=\'DD\');\nEND;\n  END IF;\nEND'
+sql_modes=1436549152 1436549152 1436549152 1436549152
+definers='root@localhost' 'root@localhost' 'root@localhost' 'root@localhost'
+client_cs_names='utf8mb4' 'utf8mb4' 'utf8mb4' 'utf8mb4'
+connection_cl_names='utf8mb4_unicode_ci' 'utf8mb4_unicode_ci' 'utf8mb4_unicode_ci' 'utf8mb4_unicode_ci'
+db_cl_names='latin1_swedish_ci' 'latin1_swedish_ci' 'latin1_swedish_ci' 'latin1_swedish_ci'
+created=150961131125 150961160505 150961163185 150961230045
